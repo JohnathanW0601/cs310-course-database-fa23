@@ -28,14 +28,20 @@ public class RegistrationDAO {
             Connection conn = daoFactory.getConnection();
             
             if (conn.isValid(0)) {
-                
-                // INSERT YOUR CODE HERE
-                
+               
+                String query = "insert into registration(studentid,termid,crn)VALUES(?,?,?)";
+                ps = conn.prepareStatement(query);
+                ps.setInt(1, studentid);
+                ps.setInt(2, termid);
+                ps.setInt(3, crn);
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected>0) {
+                    result=true;
+                }
+        
             }
             
-        }
-        
-        catch (Exception e) { e.printStackTrace(); }
+        }catch (Exception e) { e.printStackTrace(); }
         
         finally {
             
@@ -60,13 +66,19 @@ public class RegistrationDAO {
             
             if (conn.isValid(0)) {
                 
-                // INSERT YOUR CODE HERE
+                String query = "delete from registration where studentid=? termid=? and crn=?";
+                ps = conn.prepareStatement(query);
+                ps.setInt(1, studentid);
+                ps.setInt(2, termid);
+                ps.setInt(3, crn);
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected>0) {
+                    result=true;
+                }
                 
             }
             
-        }
-        
-        catch (Exception e) { e.printStackTrace(); }
+        }catch (Exception e) { e.printStackTrace(); }
         
         finally {
 
@@ -90,13 +102,17 @@ public class RegistrationDAO {
             
             if (conn.isValid(0)) {
                 
-                // INSERT YOUR CODE HERE
-                
+           String query = "delete from registration where studentid=? termid=? and crn=?";
+                ps = conn.prepareStatement(query);
+                ps.setInt(1, studentid);
+                ps.setInt(2, termid); 
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected>0) {
+                    result=true;
+                }
             }
             
-        }
-        
-        catch (Exception e) { e.printStackTrace(); }
+        }catch (Exception e) { e.printStackTrace(); }
         
         finally {
 

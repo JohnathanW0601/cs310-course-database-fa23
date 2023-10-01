@@ -17,9 +17,9 @@ public class SectionDAO {
     
     public String find(int termid, String subjectid, String num) {
         
-        String result = "[]";
+       String result = "[]";
         
-        PreparedStatement ps = null;
+       PreparedStatement ps = null;
         ResultSet rs = null;
         ResultSetMetaData rsmd = null;
         
@@ -28,8 +28,6 @@ public class SectionDAO {
             Connection conn = daoFactory.getConnection();
             
             if (conn.isValid(0)) {
-                
-                // INSERT YOUR CODE HERE
                 
             }
             
